@@ -25,7 +25,7 @@ class Controller {
       return res.json(model);
     } catch (e) {
       //при ошибке занос в логи
-      const { name } = await verify(req.cookies.id, config.get("jwt"));
+      const { name } = await verify(req.cookies.id);
       log("Request: " + e.toString(), name || "error", Ip.address(), "GET");
       return res.send(e);
     }
